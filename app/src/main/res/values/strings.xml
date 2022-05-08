@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application Test</string>
+    <string name="app_name">Vamos Rachar!</string>
     <string name="value_empty">Total: R$ 0,00</string>
     <string name="value_nonempty">Total: R$ %1s</string>
 </resources>
