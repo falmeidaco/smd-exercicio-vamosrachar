@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
     private var mTTS: TextToSpeech? = null
     private var inputValor: EditText? = null
     private var inputNumPessoas: EditText? = null
-    private var inputResultado:TextView? = null
+    private var inputResultado: TextView? = null
     private var buttonCompartilhar: Button? = null
     private var buttonFalar: Button? = null
     private var total: Double = 0.00
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         inicializaWidgets()
 
         /* Inicializando text to speech */
-        mTTS = TextToSpeech(this, TextToSpeech.OnInitListener { i->
+        mTTS = TextToSpeech(this, TextToSpeech.OnInitListener { i ->
             buttonCompartilhar!!.isEnabled = false
             if (i == TextToSpeech.SUCCESS) {
                 buttonCompartilhar!!.isEnabled = true
@@ -38,17 +38,21 @@ class MainActivity : AppCompatActivity() {
         inputValor!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int,before: Int, count: Int) {
-                if (inputNumPessoas!!.text.isEmpty() || inputNumPessoas!!.text.toString().toInt() < 1)  {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (inputNumPessoas!!.text.isEmpty() || inputNumPessoas!!.text.toString()
+                        .toInt() < 1
+                ) {
                     if (s.isEmpty()) {
                         inputResultado!!.setText(R.string.value_empty)
                     } else {
                         total = s.toString().toDouble()
-                        inputResultado!!.text = getString(R.string.value_nonempty, String.format("%.2f", total))
+                        inputResultado!!.text =
+                            getString(R.string.value_nonempty, String.format("%.2f", total))
                     }
-                } else  {
+                } else {
                     total = s.toString().toDouble() / inputNumPessoas!!.text.toString().toDouble()
-                    inputResultado!!.text = getString(R.string.value_nonempty, String.format("%.2f", total))
+                    inputResultado!!.text =
+                        getString(R.string.value_nonempty, String.format("%.2f", total))
                 }
             }
         })
@@ -57,17 +61,23 @@ class MainActivity : AppCompatActivity() {
         inputNumPessoas!!.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int,before: Int, count: Int) {
-                if (inputNumPessoas!!.text.isEmpty() || inputNumPessoas!!.text.toString().toInt() < 1)  {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                if (inputNumPessoas!!.text.isEmpty() || inputNumPessoas!!.text.toString()
+                        .toInt() < 1
+                ) {
                     if (inputValor!!.text.isEmpty()) {
                         inputResultado!!.setText(R.string.value_empty)
                     } else {
-                        total =  inputValor!!.text.toString().toDouble()
-                        inputResultado!!.text = getString(R.string.value_nonempty, String.format("%.2f", total))
+                        total = inputValor!!.text.toString().toDouble()
+                        inputResultado!!.text =
+                            getString(R.string.value_nonempty, String.format("%.2f", total))
                     }
-                } else  {
-                    val total: Double = inputValor!!.text.toString().toDouble() / inputNumPessoas!!.text.toString().toDouble()
-                    inputResultado!!.text = getString(R.string.value_nonempty, String.format("%.2f", total))
+                } else {
+                    val total: Double =
+                        inputValor!!.text.toString().toDouble() / inputNumPessoas!!.text.toString()
+                            .toDouble()
+                    inputResultado!!.text =
+                        getString(R.string.value_nonempty, String.format("%.2f", total))
                 }
             }
         })
@@ -81,6 +91,14 @@ class MainActivity : AppCompatActivity() {
         buttonFalar!!.setOnClickListener {
             falarTexto()
         }
+    }
+
+    override fun onDestroy() {
+        if (mTTS != null) {
+            mTTS!!.stop()
+            mTTS!!.shutdown()
+        }
+        super.onDestroy()
     }
 
     private fun compartilharTexto() {
@@ -107,3 +125,4 @@ class MainActivity : AppCompatActivity() {
         buttonFalar = findViewById(R.id.falar)
     }
 }
+
