@@ -2,4 +2,10 @@
     <string name="app_name">Vamos Rachar!</string>
     <string name="value_empty">Total: R$ 0,00</string>
     <string name="value_nonempty">Total: R$ %1s</string>
+    <string name="icon_description_twopersons">Ícone de duas pessoas</string>
+    <string name="icon_description_money">Ícone de cifrão monetário</string>
+    <string name="text_hint_valor">Valor da conta</string>
+    <string name="text_hint_numero_pessoas">Número de pessoas</string>
+    <string name="text_buttom_compartilhar">Compartilhar</string>
+    <string name="text_buttom_ouvir">Ouvir</string>
 </resources>
