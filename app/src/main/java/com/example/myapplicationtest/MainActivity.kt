@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private var inputNumPessoas: EditText? = null
     private var inputResultado: TextView? = null
     private var buttonCompartilhar: Button? = null
-    private var buttonFalar: Button? = null
+    private var buttonOuvir: Button? = null
     private var total: Double = 0.00
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,9 +27,9 @@ class MainActivity : AppCompatActivity() {
         inicializaWidgets()
 
         /* Inicializando text to speech */
-        mTTS = TextToSpeech(this, TextToSpeech.OnInitListener { i ->
+        mTTS = TextToSpeech(this, TextToSpeech.OnInitListener {
             buttonCompartilhar!!.isEnabled = false
-            if (i == TextToSpeech.SUCCESS) {
+            if (it == TextToSpeech.SUCCESS) {
                 buttonCompartilhar!!.isEnabled = true
             }
         })
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         /* Comportamento do botão Falar */
-        buttonFalar!!.setOnClickListener {
+        buttonOuvir!!.setOnClickListener {
             falarTexto()
         }
     }
@@ -122,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         inputNumPessoas = findViewById(R.id.inputNumPessoas)
         inputResultado = findViewById(R.id.outputResultado)
         buttonCompartilhar = findViewById(R.id.compartilhar)
-        buttonFalar = findViewById(R.id.falar)
+        buttonOuvir = findViewById(R.id.ouvir)
     }
 }
 

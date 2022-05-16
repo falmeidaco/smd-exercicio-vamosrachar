@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Lets Pay Together!</string>
+    <string name="value_empty">Total: $ 0,00</string>
+    <string name="value_nonempty">Total: $ %1s</string>
+    <string name="icon_description_twopersons">Two people icon</string>
+    <string name="icon_description_money">Money Icon</string>
+    <string name="text_hint_valor">Total to pay</string>
+    <string name="text_hint_numero_pessoas">Number of people</string>
+    <string name="text_label_compartilhar">Share</string>
+    <string name="text_label_ouvir">Listen</string>
+</resources>

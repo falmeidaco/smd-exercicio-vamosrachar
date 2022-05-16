@@ -6,6 +6,6 @@
     <string name="icon_description_money">Ícone de cifrão monetário</string>
     <string name="text_hint_valor">Valor da conta</string>
     <string name="text_hint_numero_pessoas">Número de pessoas</string>
-    <string name="text_buttom_compartilhar">Compartilhar</string>
-    <string name="text_buttom_ouvir">Ouvir</string>
+    <string name="text_label_compartilhar">Compartilhar</string>
+    <string name="text_label_ouvir">Ouvir</string>
 </resources>
